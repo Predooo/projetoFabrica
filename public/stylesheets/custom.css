@@ -1,0 +1,374 @@
+body{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--corfundo);
+    min-height: 100%;
+    width: 100%;
+    background-attachment:fixed;
+    background-color: #111111;
+}
+html{
+    min-height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--corfundo);
+    height: auto;
+}
+/* Rodape */
+.p-rodape{
+    margin: 0 auto;
+    text-align: center;
+    color: #ff00c8;
+    bottom: 0;
+    position: relative;
+    background-color: black;
+    width: 100%;
+    padding: 30px;
+    min-height: 100px;
+}
+/* Login */
+.registro{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px 0px;
+    width: 30%;
+    min-width: 350px;
+    min-height: 400px;
+    height: 95%;
+    border-radius:8px 8px 8px 8px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    background-color: #ffffff;
+}
+.login{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px 0px;
+    width: 30%;
+    min-width: 350px;
+    min-height: 400px;
+    height: 95vh;
+    border-radius:8px 8px 8px 8px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    background-color: #ffffff;
+}
+/* logo */
+.logo{
+    text-align: center; 
+    color: #ff00c8;
+    font-family: 'Poiret One', cursive;
+    background-color: black;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 1%;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    border-radius: 70%;
+  }
+/* Offcanvas */
+.offcanvas-head{
+    color: #ff00c8;
+    background-color: #000000;
+    min-height: 10%;
+}
+.overflow-auto{
+    min-height: 80%;
+    background-color: #111111;
+}
+.overflow-auto > div{
+    background-color: white;
+    color: #000000;
+    margin: 15px 15px;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    flex: 1 1 300px;
+}
+.img-produto {
+    width: 100%;
+    min-height: 100%;
+}
+.img-produto > img{
+    border-radius: 10px;
+    margin: 1%;
+    width:98%;
+}
+/* Carrinho Perfil */
+@keyframes carrinhoNone {
+    from {width: 70px;}
+    to {width: 0px;}
+}
+@keyframes carrinhoBlock {
+    from {width: 0px;}
+    to {width: 70px;}
+}
+.rodar{
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+.seta{
+    position: fixed;
+    top: 4px;
+    right: 15px;
+    margin: 0 auto;
+    max-width: 13%;
+    width: 70px;
+    animation-name: carrinhoBlock;
+    animation-duration: 1s;
+    border: 3px solid transparent;
+}
+.seta-none{
+    position: fixed;
+    top: 4px;
+    right: 15px;
+    margin: 0 auto;
+    max-width: 0%;
+    transition: all .5s;
+    animation-name: carrinhoNone;
+    animation-duration: 1s;
+}
+.seta > button{
+    display: block;
+    height:100%;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 0px; 
+    background-color: #ff000000;
+    transition: all .5s;
+    border: 3px solid transparent;
+}
+.seta > button:hover{
+    display: block;
+    height:100%;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 0px;
+    background-color: #ff000000;
+    border: 3px solid #ff00c8;
+    border-radius: 50%;
+}
+.seta-none > button{
+    display: block;
+    margin: 3px;
+    height:100%;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 0px; 
+    border: 0px;
+    background-color: #ff000000;
+    border: 3px solid transparent;
+}
+#seta .perfil{
+    display: block;
+    height:100%;
+    width: 100%;
+    margin: 10px 0px;
+    margin: 0 auto;
+    padding: 0px; 
+    background-color: #ff000000;
+    animation-name: perfilBlock;
+    animation-duration: 1s;
+}
+#seta .perfil-none{
+    display: block;
+    right: 0px;
+    height: 0px;
+    width: 0px;
+    margin: 0px;
+    margin: 0 auto;
+    padding: 0px;
+    border: 0px;
+    background-color: #ff000000;
+    animation-name: perfilNone;
+    animation-duration: 1s;
+}
+@keyframes perfilBlock {
+    from {widt: 0px;}
+    to {height: 100%;}
+}
+@keyframes perfilNone {
+    from {height: 100%;}
+    to {height: 0px;}
+}
+/* Cabecalho */
+.header{
+    margin: 0 auto;
+    background-color: #111111;
+    min-height: 100px;
+    color: white;
+}
+/* corpo... */
+.body{
+    margin: 0 auto;
+    min-width: 300px;
+    height: 100%;
+    min-height: 100%;
+}
+.div-body{
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    color: black;
+}
+.div-body > div{
+    background-color: white;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/* Add produtto */
+.tabelaAdd{
+    border-radius: 10px;
+    background-color: var(--corFundo);
+    box-shadow: 7px 7px 14px 7px rgba(0, 0, 0, 0.36);
+    padding: 0px;
+    margin: 60px 15px 10px 15px;
+    color: var(--corFundo);
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+}
+.p4{
+    color: #ffffff;
+    background-image: linear-gradient( #1414147e 0%, #000000 100%);
+    border-radius: 30px;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+.p5{
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+}
+/* paginaProduto */
+.divRoupa{
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+.divRoupa > div:nth-child(1){
+    margin: 5px auto;
+    max-height: 450px;
+    max-width: 670px;
+    flex: 1 1 670px;
+}
+.divRoupa > div:nth-child(2){
+    margin: 5px auto;
+    max-width: 320px;
+    flex: 1 1 300px;
+}
+.produto{
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    background-color: ivory;
+    margin: 0 auto;
+    flex-direction: column;
+    max-height: 400px;
+    flex-wrap: wrap;
+}
+.produto > div:nth-child(n+1){
+    position: relative;
+    max-width: 133px;
+    max-height: 133px;
+    margin: auto auto;
+    order: 2;
+}
+.produto > div.produto-select{
+    position: relative;
+    max-width: 400px;
+    max-height: 100%;
+    border-radius: 10px;
+    margin: auto auto;
+    order: 1;
+}
+.cartao{
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    background-color: ivory;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+@media (max-width:710px){
+    .divRoupa{
+        display: block;
+        margin: 10px;
+    }
+    .divRoupa > div:nth-child(1){
+        display: block;
+        margin: 5px auto;
+        max-height: 100%;
+        max-width: 400px;
+    }
+    .divRoupa > div:nth-child(2){
+        display: block;
+        max-width: 100%;
+    }
+    .produto{
+        display: flex;
+        border-radius: 10px;
+        box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+        background-color: ivory;
+        margin: 0 auto;
+        flex-direction: row;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .produto > div:nth-child(n+1){
+        flex: 1 1 133px;
+        max-width: 133px;
+        max-height: 133px;
+        border-radius: 10px;
+        margin-bottom: 3px;
+        margin: 0 auto;
+        order: 2;
+    }
+    .produto > div.produto-select{
+        flex: 1 1 400px;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        min-height: 100%;
+        order: 1;
+    }
+}
+/* Paginacao */
+.paginacao{
+    color: #ff00c8;
+    margin: 20px;
+    width: 0 auto;
+    padding: 5px;
+}
+ul{
+    display: flex;
+    margin: 0 auto;
+    padding: 0px;
+    width: 130px;
+    list-style-type: none;
+    box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+    border-radius: 5px;
+    flex-wrap: wrap;
+    background-color: #000000;
+}
+li {
+    text-align: center;
+    flex: 1 1 30px;
+}
+.li:hover{
+ background-color: white;
+}
+.a{
+    margin: 0 auto;
+    text-decoration: none;
+    color: white;
+}
+.a:hover{
+    color: #ff00c8;
+}
+.ativa{
+    color: #ff00c8;
+}

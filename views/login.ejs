@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <link rel="icon" href="public/imagens/logo.png">
+    <style>
+      body{
+        background-size:100%;
+        background-attachment:fixed;
+        background-color: #111111;
+      }
+    </style>
+    <title>Inicio</title>
+  </head>
+  <body>
+      <% for(var i=0; i < erros.length; ++i) {%>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Ocorreu um problema!</strong> <%= erros[i].texto %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% } %>
+      <div class="login">
+        <div class="logo" style="width: 95%;">
+          <h1>Line Sport Fitnes</h1>
+        </div>
+        <div class="container">
+          <form action="/logar" method="post">
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label">Email:</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="inputPassword4" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="inputPassword4" name="senha">
+            </div>
+            <div  style="margin: 0 auto; width: 100%;"><button type="submit" style="width: 100%;" class="btn btn-outline-dark">Logar</button></div>
+          </form>
+          <div  style="margin: 10px auto; width: 100%;"><a href="/registro" style="width: 100%;" class="btn btn-outline-dark">Regitro</a></div>
+        </div>
+      </div>
+    <script src="public/javascripts/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

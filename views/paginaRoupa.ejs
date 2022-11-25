@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <link rel="icon" href="public/imagens/logo.png">
+    <style>
+      html, body{
+        font-family: 'Poiret One', cursive;
+        color: #ff00c8;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="public/javascripts/inde.js"></script>
+  </head>
+  <body>
+    <!-- Cabecalho -->
+    <div class="body">
+      <header>
+        <nav>
+          <div style="position: relative;">
+            <div class="seta " id="seta">
+              <button id="seta1">
+                <img src="public/imagens/seta.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+              <button id="perfil" class="perfil-none">
+                <img src="public/imagens/perfil.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+              <button id="opcaoCarrinho" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <img src="public/imagens/carrinho.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button> 
+              <button id="logout" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <img src="public/imagens/logout.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+            </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+              <div class="offcanvas-header offcanvas-head">
+                <h5 style="margin: 0 auto;">Seu carrinho de compras!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="overflow-auto">
+                <div> 
+                  <div class="img-produto"><img src="public/imagens/carrinho.png"></div>
+                  <div style="text-align: center; margin-top: 4px;">Leggie</div>
+                </div>
+                <div> 
+                  <div class="img-produto"><img src="public/imagens/leggie.jpg"></div>
+                  <div style="text-align: center; margin-top: 4px;">Leggie</div>
+                </div>
+                
+                <div style="margin: 0 auto; background-color: #111111; width: 40%;">
+                  <button type="button" class="btn btn-outline-light" style="width: 100%;">Finalizar Compras</button>
+                </div>
+              </div>
+            </div>
+          <div class="header">
+            <div class="logo">
+              <h1>Line Sport Fitness</h1>
+            </div>
+          </div>
+          </div>
+        </nav>
+      </header>
+      <!-- corpo -->
+      <div class="divRoupa">
+        <div>
+          <h1>Imagens do produto:</h1>
+          <div class="produto">
+            <div>
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+            <div>
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+            <div>
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+            <div>
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+            <div>
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+            <div class="produto-select">
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+            <div>
+                <div class="img-produto">
+                  <img src="public/imagens/carrinho.png">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1>cartão</h1>
+          <div class="cartao">
+            sddsd
+          </div>
+        </div>
+      </div>
+      <h2 style="text-align: center; color:#ff00c8">Produtos Similares</h2>
+      <div class="div-body" style="margin-top: 5%; margin-bottom:5%">
+        <div>
+          <a href="/paginaRoupa" style="color: black; text-decoration: none;">
+            <div class="img-produto">
+              <img src="public/imagens/carrinho.png">
+              <div style="text-align: center; margin-top: 4px; width: 300px;">Leggie</div>
+            </div>
+          </a>
+        </div>
+        <div>
+          <a href="/paginaRoupa" style="color: black; text-decoration: none;">
+            <div class="img-produto">
+              <img src="public/imagens/carrinho.png">
+              <div style="text-align: center; margin-top: 4px; width: 300px;">Leggie</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    <!-- Rodapé -->
+    <footer>
+      <div class="p-rodape">
+        <p>Todos os Direitos Reservados.Copyright © 2022 • LSF - Line Sport Fitness</p>
+      </div>
+    </footer>
+    </div>
+    <script src="public/javascripts/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
