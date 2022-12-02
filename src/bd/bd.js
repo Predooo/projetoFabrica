@@ -15,8 +15,6 @@ sequelize.authenticate().then(()=>{
 })
 
 module.exports = {
-    Sequelize: Sequelize,
-    sequelize: sequelize,
     produto: produto.produto,
     img: produto.img,
     cores: produto.cores,
@@ -28,5 +26,7 @@ module.exports = {
     tecidos: produto.tecidos,
     tecidoProduto: produto.tecidoProduto,
     cliente: cliente.cliente,
-    carrinho: cliente.carrinho
+    carrinho: cliente.carrinho,
+    Sequelize: Sequelize,
+    sequelize: sequelize,
 }

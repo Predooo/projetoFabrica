@@ -6,9 +6,6 @@ const multer = require('multer');
 const session = require("express-session");
 const cookie = require('cookie-parser');
 const bd = require('./bd/bd');
-const {cliente, carrinho} = require('./bd/cliente')
-const {produto,img,cores,cor,categorias,categoriaProduto,
-      tamanhos,tamanhoProduto,tecidos,tecidoProduto} = require('./bd/produto')
 
 var erros=[], path = require('path'), dataAtual = Date.now(); 
 var config = {
@@ -23,7 +20,7 @@ var config = {
       }
   }),
   limits:{
-      fileSize: 2* 1024 * 1024*1024,
+      fileSize: 2* 1024 * 1024,
   },
   fileFilter: (req, file, cb)=>{
       const allowedMimes = [
@@ -65,12 +62,6 @@ router.get('/', function(req, res, next) {
 router.get('/addProduto',(req,res)=>{
   res.render('addProdutos', {})
 })
-
-const buf = Buffer.from('hello world', 'utf8');
-
-console.log(buf.toString('hex'));
-
-console.log(Buffer.from(buf.toString('hex'), 'hex'))
 
 router.post('/addProduto', multer(config).any('file', 'file1', 'file2', 'file3', 'file4', 'file5', 'file6', 'file7',), (req,res)=>{
   pdt = {nome: req.body.nome,
