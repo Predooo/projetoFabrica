@@ -10,10 +10,14 @@ var x = 0, y = 0;
           if (a > b) {
             $("#seta").addClass("seta-none")
             $("#seta").removeClass("seta")
+            $("#footer").addClass("footer-none")
+            $("#footer").removeClass("footer")
             b=a
           } else {
             $("#seta").addClass("seta");
             $("#seta").removeClass("seta-none")
+            $("#footer").addClass("footer")
+            $("#footer").removeClass("footer-none")
             b=a
           }
         });

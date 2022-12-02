@@ -5,13 +5,11 @@ const PORT = 3000;
 const HOST = '0.0.0.0';
 
 // BD
-const bd = require("./bd/bd")
-const { or, and, gt, lt } = bd.Sequelize.Op;
-var dates = Date.now(), erros=[];
+const bd = require("./src/bd/bd")
 
 // ROTAS, IMPORT
-var userRouter = require('./rotas/user');
-var adminRouter = require('./rotas/admin');
+var userRouter = require('./src/user');
+var adminRouter = require('./src/admin');
 
 // Aplicacao
 const app = express();
@@ -24,7 +22,10 @@ app.set('view engine', 'ejs');
 
 // ROTAS, USE
 app.use('/', userRouter);
-app.use('/admin', adminRouter);
+app.use('/admin', adminRouter.router);
+
+app.use(express.json());
+app.use(express.urlencoded( {extended:true} ));
 
 // servidor na porta 8000 :D
 app.listen(PORT, HOST, () => { console.log("Foi!") })

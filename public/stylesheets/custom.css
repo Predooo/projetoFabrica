@@ -1,30 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--corfundo);
+}
 body{
-    position: relative;
     font-family: 'Roboto', sans-serif;
     background-color: var(--corfundo);
     min-height: 100%;
     width: 100%;
     background-attachment:fixed;
     background-color: #111111;
-}
-html{
-    min-height: 100%;
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--corfundo);
-    height: auto;
-}
-/* Rodape */
-.p-rodape{
-    margin: 0 auto;
-    text-align: center;
-    color: #ff00c8;
-    bottom: 0;
-    position: relative;
-    background-color: black;
-    width: 100%;
-    padding: 30px;
-    min-height: 100px;
 }
 /* Login */
 .registro{
@@ -109,7 +101,7 @@ html{
 .seta{
     position: fixed;
     top: 4px;
-    right: 15px;
+    right: 2%;
     margin: 0 auto;
     max-width: 13%;
     width: 70px;
@@ -120,9 +112,10 @@ html{
 .seta-none{
     position: fixed;
     top: 4px;
-    right: 15px;
+    right: 2%;
     margin: 0 auto;
-    max-width: 0%;
+    max-width: 13%;
+    width: 0px;
     transition: all .5s;
     animation-name: carrinhoNone;
     animation-duration: 1s;
@@ -202,7 +195,8 @@ html{
     margin: 0 auto;
     min-width: 300px;
     height: 100%;
-    min-height: 100%;
+    width: 100%;
+    position: relative
 }
 .div-body{
     display: flex;
@@ -371,4 +365,43 @@ li {
 }
 .ativa{
     color: #ff00c8;
+}
+
+
+/* Rodape */
+.p-rodape{
+    margin: 0 auto;
+    text-align: center;
+    color: #ff00c8;
+    bottom: 0;
+    position: relative;
+    background-color: black;
+    width: 100%;
+    padding: 30px;
+    min-height: 80px;
+}
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    animation-name: footerBlock;
+    animation-duration: 1s;
+}
+.footer-none{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 0px;
+    transition: all .5s;
+    animation-name: footerNone;
+    animation-duration: 1s;
+}
+@keyframes footerNone {
+    from {height: 80px;}
+    to {height: 0px;}
+}
+@keyframes footerBlock {
+    from {height: 0px;}
+    to {height: 80px;}
 }

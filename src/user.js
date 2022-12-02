@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require("express-session");
 const cookie = require('cookie-parser');
-const { cliente } = require('../bd/bd');
+const { cliente, produto, img } = require('./bd/bd');
 var erros = [];
 
 router.use(session({
@@ -14,6 +14,15 @@ router.use(session({
 }))
 router.use(cookie());
 router.use('/public', express.static('public'));
+
+// Numero aleatorio
+function shuffleArray(arr) {
+for (let i = arr.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+}
+return arr;
+}
 
 // body-parser
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -127,14 +136,26 @@ router.post('/logar',(req,res)=>{
   })
 })
 router.get('/',(req,res)=>{
-  res.cookie("Cookie", "Cookie pra dps",{maxAge:1000*60*60})
-  res.render('index',{})
+  if(!req.cookies.produtos){
+    produto.findAll().then((produtos)=>{
+      produtos = shuffleArray(produtos)
+      res.cookie("produtos", produtos, {maxAge:1000*60*60})
+      res.cookie("pagina", 1, {maxAge:1000*60*60})
+      res.render('index',{produtos: req.cookies.produtos, pagina: req.cookies.pagina})
+    })
+  }else{
+    req.cookies.pagina = 2;
+    res.render('index', {produtos: req.cookies.produtos, pagina: req.cookies.pagina})
+  }
 })
 router.get('/perfil',(req,res)=>{
     res.cookie("Cookie", "Cookie pra dps",{maxAge:1000*60*60})
     bd.cliente.findAll().then((clientes)=>{
       res.render('clientes',{clientes: clientes})
     })
+})
+router.get('/paginaRoupa',(req,res)=>{
+  res.render('paginaRoupa', {})
 })
 
 module.exports = router;

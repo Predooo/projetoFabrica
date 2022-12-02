@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <link rel="icon" href="public/imagens/logo.png">
+    <style>
+      body{
+        font-family: 'Poiret One', cursive;
+        height: 100%;
+        color: #ff00c8;
+      }
+    </style>
+    <script src="public/javascripts/jquery.js"></script>
+    <script src="public/javascripts/inde.js"></script>
+    <title>Inicio</title>
+  </head>
+  <body>
+    <!-- Cabecalho -->
+    <div class="body">
+      <header>
+        <nav>
+          <div style="position: relative;">
+            <div class="seta " id="seta">
+              <button id="seta1">
+                <img src="public/imagens/seta.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+              <button id="perfil" class="perfil-none">
+                <a href="/perfil">
+                  <img src="public/imagens/perfil.png" style="height: 100%; width: 100%; border-radius: 50%;">
+                </a>
+              </button>
+              <button id="opcaoCarrinho" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <img src="public/imagens/carrinho.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button> 
+              <button id="logout" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <img src="public/imagens/logout.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+            </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+              <div class="offcanvas-header offcanvas-head">
+                <h5 style="margin: 0 auto;">Seu carrinho de compras!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="overflow-auto">
+                <div> 
+                  <div class="img-produto"><img src="public/imagens/carrinho.png"></div>
+                  <div style="text-align: center; margin-top: 4px;">Leggie</div>
+                </div>
+                <div> 
+                  <div class="img-produto"><img src="public/imagens/leggie.jpg"></div>
+                  <div style="text-align: center; margin-top: 4px;">Leggie</div>
+                </div>
+                
+                <div style="margin: 0 auto; background-color: #111111; width: 40%;">
+                  <button type="button" class="btn btn-outline-light" style="width: 100%;">Finalizar Compras</button>
+                </div>
+              </div>
+            </div>
+          <div class="header">
+            <div class="logo">
+              <h1>Line Sport Fitness</h1>
+            </div>
+          </div>
+          </div>
+        </nav>
+      </header>
+      <!-- corpo -->
+      <div style="display: grid; grid-template-columns: 1fr;">
+        <div style="margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
+        margin: 10px;
+        padding: 30px;background-color: white;">
+                <form class="was-validated" action="/admin/addProduto" method="post" enctype="multipart/form-data">
+                  <div>
+                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Nome da produto:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="nome" required>
+                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Tecido:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="tecido" required>
+                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Tamanho:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="tamanho" required>
+                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Preco:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="preco" required>
+                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Quantidade:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="qtd" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file" multiple required accept="image/jpeg, image/png" value="file">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file1" multiple accept="image/jpeg, image/png" value="file1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file2" multiple accept="image/jpeg, image/png" value="file2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file3" multiple accept="image/jpeg, image/png" value="file3">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file4" multiple accept="image/jpeg, image/png" value="file4">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file5" multiple accept="image/jpeg, image/png" value="file5">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file6" multiple accept="image/jpeg, image/png" value="file6">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="file7" multiple accept="image/jpeg, image/png" value="file7">
+                  </div>
+                  <div class="mb-3 text-center" style="margin-top: 10px;">
+                    <button type="submit" class="btn btn-outline-dark">Cadastrar</button>
+                  </div>
+                </form>
+              </div>  
+      </div>
+      <!-- Rodapé -->
+      <footer id="footer" class="footer">
+        <div>
+          <p class="p-rodape">LSF - Line Sport Fitness</p>
+        </div>
+      </footer>
+    </div>
+    <script src="public/javascripts/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
