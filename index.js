@@ -1,7 +1,7 @@
 // ***************MODULOS E APP****************
 const express = require("express");
 const cors = require('cors');
-const PORT = 3000;
+const PORT = 8000;
 const HOST = '0.0.0.0';
 
 // BD

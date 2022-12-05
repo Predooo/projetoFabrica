@@ -405,3 +405,45 @@ li {
     from {height: 0px;}
     to {height: 80px;}
 }
+.formularioRoupas{
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.formularioRoupas > button{
+    margin: 0px auto;
+    border-radius: 0px 0px 10px 10px;
+}
+.formularioRoupas > div:nth-child(2){
+    margin: 0px auto;
+    border:#11111122 solid 1px;
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    width: 100%;
+    background-color: white;
+}
+.formularioRoupas > div:nth-child(n+3){
+    border-radius: 0px 0px 0px 0px;
+    margin: 0px auto;
+    border:#11111122 solid 1px;
+    padding: 5px;
+    width: 100%;
+    background-color: white;
+}
+.formularioRoupas > h3{
+    width: 100%;
+}
+h3 > button{
+    max-width: 50px;
+    padding: 0px; 
+    background-color: #ff000000;
+    transition: all .5s;
+    border: 3px solid transparent;
+}
+h3 > button:hover{
+    max-width: 50px;
+    border-radius: 50%;
+    padding: 0px;
+    background-color: #ff000000;
+    border: 3px solid #ff00c8;
+}

@@ -21,6 +21,12 @@
       document.cookie;
       console.log(document.cookie.tecido)
     </script>
+    <script>
+      setTimeout(()=>{
+        alert(` Esta é a pagina inicial, não tem nehuma conexão com o banco de dados ainda.\n\n Você pode andar pela pagina e ver algumas funcionalidades!\n\n Aqui não tem muita coisa para ver, a pagina admin tem admin tem mais funcionalidades.`
+        )
+      },1000)
+    </script>
     <title>Inicio</title>
   </head>
   <body>
@@ -29,6 +35,7 @@
       <header>
         <nav>
           <div style="position: relative;">
+            <div style="position: absolute; color: white; top: 0px; left:0px; display:block"><a href="/admin/" style="position: fixed; color: white; top: 0px; left:0px">Link para a pagina admin!</a></div>
             <div class="seta " id="seta">
               <button id="seta1">
                 <img src="public/imagens/seta.png" style="height: 100%; width: 100%; border-radius: 50%;">
@@ -40,9 +47,11 @@
               </button>
               <button id="opcaoCarrinho" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <img src="public/imagens/carrinho.png" style="height: 100%; width: 100%; border-radius: 50%;">
-              </button> 
-              <button id="logout" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <img src="public/imagens/logout.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+              <button id="logout" class="perfil-none" type="button" href="/logout">
+                <a href="logout">
+                  <img src="public/imagens/logout.png" style="height: 100%; width: 100%; border-radius: 50%;">
+                </a>
               </button>
             </div>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">

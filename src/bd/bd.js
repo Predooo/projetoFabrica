@@ -1,7 +1,5 @@
 //Conexao com o BD
 const Sequelize = require('sequelize');
-const cliente = require('./cliente');
-const produto = require('./produto');
 
 const sequelize = new Sequelize('sistemaloja', 'root', 'predolinde',{
     host: '127.0.0.1',
@@ -15,18 +13,6 @@ sequelize.authenticate().then(()=>{
 })
 
 module.exports = {
-    produto: produto.produto,
-    img: produto.img,
-    cores: produto.cores,
-    cor: produto.cor,
-    categorias: produto.categorias,
-    categoriaProduto: produto.categoriaProduto,
-    tamanhos: produto.tamanhos,
-    tamanhoProduto: produto.tamanhoProduto,
-    tecidos: produto.tecidos,
-    tecidoProduto: produto.tecidoProduto,
-    cliente: cliente.cliente,
-    carrinho: cliente.carrinho,
     Sequelize: Sequelize,
     sequelize: sequelize,
 }

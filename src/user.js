@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const session = require("express-session");
 const cookie = require('cookie-parser');
-const { cliente, produto, img } = require('./bd/bd');
+const {produto, img, cores, cor, categorias, categoriaProduto, tamanhos, tamanhoProduto,
+  tecidos, tecidoProduto, cliente, carrinho, Sequelize, sequelize} = require('./bd/import');
 var erros = [];
 
 router.use(session({
@@ -68,12 +69,12 @@ req.body.numero = parseInt(req.body.numero)
   if (erros.length > 0) {
     res.render('registro', { erros: erros });
   } else {
-    bd.cliente.findAll({ where: { email: req.body.email } }).then((params) => {
+    cliente.findAll({ where: { email: req.body.email } }).then((params) => {
       if (params.length > 0) {
         erros.push({ texto: "Já possui um usuário com este email!" })
         res.render('registro', { erros: erros })
       } else {
-        const novoUsuario = new bd.cliente({
+        const novoUsuario = new cliente({
           id: null,
           nome: req.body.nome,
           email: req.body.email,
@@ -107,6 +108,7 @@ req.body.numero = parseInt(req.body.numero)
   }
 })
 router.get('/login',(req,res)=>{
+    req.session.login = false;
     res.cookie("Cookie", "Cookie pra dps",{maxAge:1000*60*60})
     res.render('login',{erros: erros})
     erros = []
@@ -135,7 +137,14 @@ router.post('/logar',(req,res)=>{
     res.redirect('/login')
   })
 })
+router.get('/logout', (req, res)=>{
+  res.redirect('/login')
+})
 router.get('/',(req,res)=>{
+  console.log(req.session.login)
+  if(!req.session.login || req.session.login==false){
+    res.redirect('/login')
+  }else{
   if(!req.cookies.produtos){
     produto.findAll().then((produtos)=>{
       produtos = shuffleArray(produtos)
@@ -147,10 +156,11 @@ router.get('/',(req,res)=>{
     req.cookies.pagina = 2;
     res.render('index', {produtos: req.cookies.produtos, pagina: req.cookies.pagina})
   }
+}
 })
 router.get('/perfil',(req,res)=>{
     res.cookie("Cookie", "Cookie pra dps",{maxAge:1000*60*60})
-    bd.cliente.findAll().then((clientes)=>{
+    cliente.findAll().then((clientes)=>{
       res.render('clientes',{clientes: clientes})
     })
 })

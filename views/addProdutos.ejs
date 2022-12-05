@@ -15,9 +15,17 @@
         height: 100%;
         color: #ff00c8;
       }
+      h3{
+        text-align: center;
+      }
     </style>
     <script src="public/javascripts/jquery.js"></script>
     <script src="public/javascripts/inde.js"></script>
+    <script>
+      setTimeout(()=>{
+        alert('Nesta pagina você poderá adicionar um produto, primeiro informe os dados básicos')
+      },500)
+    </script>
     <title>Inicio</title>
   </head>
   <body>
@@ -37,9 +45,11 @@
               </button>
               <button id="opcaoCarrinho" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <img src="public/imagens/carrinho.png" style="height: 100%; width: 100%; border-radius: 50%;">
-              </button> 
-              <button id="logout" class="perfil-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <img src="public/imagens/logout.png" style="height: 100%; width: 100%; border-radius: 50%;">
+              </button>
+              <button id="logout" class="perfil-none" type="button" href="/logout">
+                <a href="logout">
+                  <img src="public/imagens/logout.png" style="height: 100%; width: 100%; border-radius: 50%;">
+                </a>
               </button>
             </div>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -72,68 +82,96 @@
       </header>
       <!-- corpo -->
       <div style="display: grid; grid-template-columns: 1fr;">
-        <div style="margin: 0 auto;
-        border-radius: 10px;
-        box-shadow: 2.5px 2.5px 5px 2.5px rgba(0, 0, 0, 0.456);
-        margin: 10px;
-        padding: 30px;background-color: white;">
-                <form class="was-validated" action="/admin/addProduto" method="post" enctype="multipart/form-data">
-                  <div>
-                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Nome da produto:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="nome" required>
-                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Tecido:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="tecido" required>
-                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Tamanho:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="tamanho" required>
-                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Preco:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="preco" required>
-                    <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Quantidade:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="qtd" required>
+        <div style="margin: 10px; padding: 5px 30px;">
+            <div id="formularioRoupas">
+              <div id="dadosBasicos" class="formularioRoupas">
+                <h3>Primeiro insira uma descrição geral do produto!</h3>
+                <div>
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Codigo:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="codigo" required placeholder="2208">
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Nome:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="nome" required placeholder="Legging Corsário">
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Preço Inicial:</span>
+                  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="preco" required placeholder="39.99">
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Quantidade Total:</span>
+                  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="qtd" required placeholder="40">
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Qual é a categoria?</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="categoria" required placeholder="Roupas de Academia">
+                </div>
+                <button type="button" class="btn btn-dark" style="width:100%; display:block" onclick="dadosBasicosButton()">Iniciar Cadastro</button>
+              </div>
+              <div id="divCores" style="display: none;" class="formularioRoupas">
+                <h3 id="h3cor">Insira dados sobre os tecidos e cores!
+                  <button type="button" onclick="addcor()">
+                    <img src="public/imagens/mais.png" style="height: 100%; width: 100%; border-radius: 50%;">
+                  </button>
+                </h3>
+                <div id="cor1">
+                  <h2>1° Tecido/cor:</h2>
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Nome:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="nomeCor" required placeholder="Preto" value="">
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Quantidade:</span>
+                  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="qtdCor" required placeholder="10" value="">
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Preço extra:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="precoCor" required placeholder="5.00" value="">
+                  <div class="mb-3" style="margin-top: 1%;">
+                    <input class="form-control" type="file" id="file1" name="file1" multiple accept="image/jpeg, image/png" value="file1" required>
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file" multiple required accept="image/jpeg, image/png" value="file">
+                </div>
+                <button id="buttonCor" type="button" class="btn btn-dark" style="width:100%" onclick="dadosCores()">Adicionar Cores</button>
+              </div>
+              <div id="divTamanhos" style="display: none;" class="formularioRoupas">
+                <h3 id="h3tamanho">Insira dados sobre os tamanhos!
+                  <button type="button" onclick="addtamanho()">
+                    <img src="public/imagens/mais.png" style="height: 100%; width: 100%; border-radius: 50%;">
+                  </button>
+                </h3>
+                <div id="tamanho1">
+                  <h2>1° Tamanho:</h2>
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Nome:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="nomeTamanho" required>
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Descricao:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="descricaoTamanho" required>
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Quantidade:</span>
+                  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="qtdTamanho" required>
+                  <span style="margin-top: 1%;" class="input-group-text" id="inputGroup-sizing-sm">Preço extra:</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="precoTamanho" required>
+                </div>
+                <button id="buttonCor" type="button" class="btn btn-dark" style="width:100%" onclick="dadosTamanhos()">Adicionar Tamanhos</button>
+              </div>
+              <div id="divImagens" style="display: none;" class="formularioRoupas">
+                <h3 id="h3imagens" style="display: none;">Insira as imagens</h3>
+                <div id="divimagens" style="display: none;">
+                  <div class="mb-3" id="file2" style="margin-top: 1%;">
+                    <input class="form-control" type="file" name="file2" multiple accept="image/jpeg, image/png" value="file2">
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file1" multiple accept="image/jpeg, image/png" value="file1">
+                  <div class="mb-3" id="file3" style="margin-top: 1%;">
+                    <input class="form-control" type="file" name="file3" multiple accept="image/jpeg, image/png" value="file3">
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file2" multiple accept="image/jpeg, image/png" value="file2">
+                  <div class="mb-3" id="file4" style="margin-top: 1%;">
+                    <input class="form-control" type="file" name="file4" multiple accept="image/jpeg, image/png" value="file4">
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file3" multiple accept="image/jpeg, image/png" value="file3">
+                  <div class="mb-3" id="file5" style="margin-top: 1%;">
+                    <input class="form-control" type="file" name="file5" multiple accept="image/jpeg, image/png" value="file5">
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file4" multiple accept="image/jpeg, image/png" value="file4">
+                  <div class="mb-3" id="file6" style="margin-top: 1%;">
+                    <input class="form-control" type="file" name="file6" multiple accept="image/jpeg, image/png" value="file6">
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file5" multiple accept="image/jpeg, image/png" value="file5">
+                  <div class="mb-3" id="file7" style="margin-top: 1%;">
+                    <input class="form-control" type="file" name="file7" multiple accept="image/jpeg, image/png" value="file7">
                   </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file6" multiple accept="image/jpeg, image/png" value="file6">
-                  </div>
-                  <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Insira as imagens:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" name="file7" multiple accept="image/jpeg, image/png" value="file7">
-                  </div>
-                  <div class="mb-3 text-center" style="margin-top: 10px;">
-                    <button type="submit" class="btn btn-outline-dark">Cadastrar</button>
-                  </div>
-                </form>
-              </div>  
+                </div>
+                <button id="buttonCor" type="button" class="btn btn-dark" style="width:100%" onclick="dadosTamanhos()">Adicionar Cores</button>
+              </div>
+            </div>
+        </div>  
       </div>
       <!-- Rodapé -->
-      <footer id="footer" class="footer">
+      <!-- <footer id="footer" class="footer">
         <div>
           <p class="p-rodape">LSF - Line Sport Fitness</p>
         </div>
-      </footer>
+      </footer> -->
     </div>
     <script src="public/javascripts/bootstrap.bundle.min.js"></script>
   </body>
