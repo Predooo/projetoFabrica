@@ -1,7 +1,7 @@
 //Conexao com o BD
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('sistemaloja', 'root', 'mynewpassword',{
+const sequelize = new Sequelize('sistemaloja', 'root', 'predolinde',{
     host: '127.0.0.1',
     port: 3306,
     dialect: 'mysql'

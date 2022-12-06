@@ -9,100 +9,111 @@
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="public/stylesheets/style.css">
     <link rel="icon" href="public/imagens/logo.png">
+    <script src="public/javascripts/jquery.js"></script>
+    <script src="public/javascripts/inde.js"></script>
     <style>
       body{
         background-size:100%;
         background-attachment:fixed;
         background-color: #111111;
       }
+      label{
+        scale: .97;
+        margin-bottom: 0px;
+      }
+      p{
+        margin-bottom: 0px;
+        color: black;
+      }
     </style>
     <title>Inicio</title>
   </head>
   <body>
-    <% for(var i = 0; i < erros.length; ++i) {%>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Ocorreu um problema!</strong> <%= erros[i].texto %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="registro" id="registro">
+      <div class="logo" style="width: 95%;">
+        <h1>Line Sport Fitnes</h1>
       </div>
-   <% } %>
-      <div class="registro">
-        <div class="logo" style="width: 95%;">
-          <h1>Line Sport Fitnes</h1>
-        </div>
-        <div class="container">
-          <form action="/cadastro" method="post">
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">Nome:</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" name="nome">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Email:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
-            </div>
-            <div class="mb-3">
-              <label for="inputPassword4" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="inputPassword4" name="senha">
-            </div>
-            <div class="mb-3">
-              <label for="inputPassword4" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="inputPassword4" name="senha2">
-            </div>
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">Cidade:</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" name="cidade">
-            </div>
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">Bairro:</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" name="bairro">
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Rua</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="rua">
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Numero:</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="numero">
-              </div>
-              <div class="mb-3">
-                <label for="inputPassword4" class="form-label">Estado</label>
-                <select class="form-select" aria-label="Default select example" name="estado">
-                <option selected></option>
-                <option>AC</option>
-                <option>AL</option>
-                <option>AP</option>
-                <option>AM</option>
-                <option>BA</option>
-                <option>CE</option>
-                <option>DF</option>
-                <option>ES</option>
-                <option>GO</option>
-                <option>MA</option>
-                <option>MT</option>
-                <option>MS</option>
-                <option>MG</option>
-                <option>PA</option>
-                <option>PB</option>
-                <option>PR</option>
-                <option>PE</option>
-                <option>PI</option>
-                <option>RJ</option>
-                <option>RN</option>
-                <option>RS</option>
-                <option>RO</option>
-                <option>RR</option>
-                <option>SC</option>
-                <option>SP</option>
-                <option>SE</option>
-                <option>TO</option>
-              </select>
-              </div>
-            </div>
-            <div style="margin: 0 auto; width: 100%;"><button type="submit" style="width: 100%;" class="btn btn-outline-dark">Finalizar Cadastro</button></div>
-          </form>
-          <div style="margin: 0 auto; margin-top: 5px; width: 100%;">
-            <div style="color: black;">Já possui cadastro? <a href="/login" style="width: 100%; color: black; text-decoration: black; border-bottom: #111111 solid 1px;">Clique aqui para realizar login.</a></div>
+      <div style=" margin: 0px 7px">
+        <p style="margin-top: 5%; text-align: justify;">Informe seus dados básicos para finalizar o cadastro.</p>
+      </div>
+      <div class="container" style="margin-top: 5%;">
+        <form id="form">
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"><p>Nome:</p></label>
+            <input type="text" class="form-control" name="nome" required>
           </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><p>Email:</p></label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword4" class="form-label"><p>Senha:</p></label>
+            <input type="password" class="form-control" id="senha1" name="senha" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword4" class="form-label"><p>Repita sua senha:</p></label>
+            <input type="password" class="form-control" id="senha2" name="senha2" required>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"><p>Cidade:</p></label>
+            <input type="text" class="form-control" name="cidade" required>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"><p>Bairro:</p></label>
+            <input type="text" class="form-control" name="bairro" required>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"><p>Logradouro:</p></label>
+            <input type="text" class="form-control" name="logradouro" required>
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"><p>Número:</p></label>
+            <input type="text" class="form-control" name="numero" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword4" class="form-label"><p>Estado</p></label>
+            <select class="form-select" aria-label="Default select example" name="estado" required id="estado">
+            <option selected></option>
+            <option>AC</option>
+            <option>AL</option>
+            <option>AP</option>
+            <option>AM</option>
+            <option>BA</option>
+            <option>CE</option>
+            <option>DF</option>
+            <option>ES</option>
+            <option>GO</option>
+            <option>MA</option>
+            <option>MT</option>
+            <option>MS</option>
+            <option>MG</option>
+            <option>PA</option>
+            <option>PB</option>
+            <option>PR</option>
+            <option>PE</option>
+            <option>PI</option>
+            <option>RJ</option>
+            <option>RN</option>
+            <option>RS</option>
+            <option>RO</option>
+            <option>RR</option>
+            <option>SC</option>
+            <option>SP</option>
+            <option>SE</option>
+            <option>TO</option>
+          </select>
+          </div>
+          <div style="margin: 0 auto; width: 100%;">
+            <button type="submit" style="width: 100%;" class="btn btn-outline-dark" onclick="registro()">
+              Finalizar Cadastro
+            </button>
+          </div>
+        </form>
+        <div style="margin: 0 auto; margin-top: 5px; width: 100%;">
+          <div style="color: black;">Já possui cadastro? <a href="/login" style="width: 100%; color: black; text-decoration: black; border-bottom: #111111 solid 1px;">Clique aqui para realizar login.</a></div>
         </div>
       </div>
+    </div>
     <script src="public/javascripts/bootstrap.bundle.min.js"></script>
   </body>
 </html>
