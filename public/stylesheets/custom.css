@@ -9,6 +9,8 @@ html{
     min-height: 100%;
     font-family: 'Roboto', sans-serif;
     background-color: var(--corfundo);
+    font-family: 'Poiret One', cursive;
+    color: #ff00c8;
 }
 body{
     font-family: 'Roboto', sans-serif;
@@ -17,6 +19,8 @@ body{
     width: 100%;
     background-attachment:fixed;
     background-color: #111111;
+    font-family: 'Poiret One', cursive;
+    color: #ff00c8;
 }
 /* Login */
 .registro{
@@ -491,4 +495,18 @@ h3 > button:hover{
 }
 .aAlerta:hover{
     color: white;
+}
+
+#registro > body{
+    background-size:100%;
+    background-attachment:fixed;
+    background-color: #111111;
+}
+#registro > label{
+    scale: .97;
+    margin-bottom: 0px;
+}
+#registro > p{
+    margin-bottom: 0px;
+    color: black;
 }

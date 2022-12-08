@@ -91,12 +91,7 @@ router.post('/addProduto', (req,res)=>{
     res.send({condicao: false,mensagem: "Ocorreu um erro interno"})
   })
 })
-const Stream = require('stream')
-const readableStream = new Stream.Readable({
-  read() {}
-})
-readableStream.push('hi!')
-readableStream.push('ho!')
+
 router.post('/addImagens', multer(config).any('file', 'file1', 'file2', 'file3', 'file4', 'file5', 'file6', 'file7',), (req, res)=>{
   function salvaImagem(P){
     produto.findAll({where: req.cookies.pdt}).then((pdt)=>{
